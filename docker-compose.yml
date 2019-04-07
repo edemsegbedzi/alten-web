@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  api:
+    image: 'alten-api'
+    ports:
+    - 8080:8080
+  web:
+    image: 'alten-web'
+    build: '.'
+    ports:
+    - 4200:80

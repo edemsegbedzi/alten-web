@@ -1,0 +1,61 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Vehicle</h4>
+                      <p class="card-category">Vehicle Details</p>
+                  </div>
+              </div>
+              <div *ngFor="let vehicle of customer?.vehicles" class="card">
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-4 offset-1">
+                              <label>VIN</label>
+                              <p>{{vehicle.vin}}</p>
+                          </div>
+                          <div class="col-md-4 offset-2">
+                              <label>Registration Number</label>
+                              <p>{{vehicle.regNum}}</p>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6 offset-1">
+                              <label>Status</label>
+
+                              <div *ngIf="vehicle.status === 'connected'; else offline">
+                                  <p style="color: springgreen">{{vehicle.status}}</p>
+                              </div>
+
+                              <ng-template #offline>
+                                  <p style="color: orangered">{{vehicle.status}}</p>
+                              </ng-template>
+                          </div>
+                          <div class="col-md-3 offset-md-1">
+                              <label></label>
+                              <p> Updated {{vehicle.updateDateTime| timeAgo}}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a href="#pablo">
+                          <img class="img" src="./assets/img/faces/marc.jpg" />
+                      </a>
+                  </div>
+                  <div class="card-body">
+                      <h6 class="card-category text-gray">Customer / Vehicle Owner</h6>
+                      <h4 class="card-title">{{customer?.name}}</h4>
+                      <p class="card-description">
+                          {{customer?.address}}
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

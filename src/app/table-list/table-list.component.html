@@ -1,0 +1,62 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Vehicles </h4>
+                      <!--<p class="card-category"> List of all vehicles and the customerName of customer </p>-->
+                      <input   class="row col-md-8  col-lg-8 col-sm-6 offset-2 form-control card" type="text" [(ngModel)]="search" placeholder="Serach any fields"/>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      VIN
+                                  </th>
+                                  <th>
+                                      Registration Number
+                                  </th>
+                                  <th>
+                                      Customer Name
+                                  </th>
+                                  <th>
+                                      Status
+                                  </th>
+                                  <th>
+                                     Last Updated
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <tr  *ngFor="let vehicle of vehicles | vehicleCustomerFilter:search">
+                                      <td>
+                                          {{vehicle.vin}}
+                                      </td>
+                                      <td>
+                                          {{vehicle.regNum}}
+                                      </td>
+                                      <td (click)="linkToCustomer(vehicle.customerId)">
+                                         {{vehicle.customerName}}
+                                      </td>
+                                      <td>
+                                          <div *ngIf="vehicle.status === 'connected'; else offline">
+                                              <p style="color: springgreen">{{vehicle.status}}</p>
+                                          </div>
+
+                                          <ng-template #offline>
+                                              <p style="color: orangered">{{vehicle.status}}</p>
+                                          </ng-template>                                      </td>
+                                      <td >
+                                          {{vehicle.updateDateTime | timeAgo}}
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

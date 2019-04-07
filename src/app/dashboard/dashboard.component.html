@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4" *ngFor="let customer of customers">
+              <div class="card card-chart">
+                  <div class="card-header card-header-success">
+                      <app-graph [customer]="customer"></app-graph>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">{{customer?.name}}</h4>
+                      <p class="card-category">
+                          <span class="text-success">{{customer?.address}}</span></p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> updated {{this.customers[0].vehicles[0].updateDateTime | timeAgo}}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
