@@ -7,7 +7,9 @@ import {Customer} from './Customer';
 @Injectable()
 export class DashboardService {
 
-    baseUrl = 'http://localhost:8080/customers' //'http://www.mocky.io/v2/5ca640a0340000640076affa';
+    baseUrl = 'http://localhost:8080/customers';
+    // Mocking URL
+    // 'http://www.mocky.io/v2/5ca640a0340000640076affa';
     constructor(private http: HttpClient) { }
 
     getCustomers (): Observable<any> {

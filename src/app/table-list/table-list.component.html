@@ -29,14 +29,14 @@
                                   </th>
                               </thead>
                               <tbody>
-                                  <tr  *ngFor="let vehicle of vehicles | vehicleCustomerFilter:search">
+                                  <tr (click)="linkToCustomer(vehicle.customerId)" *ngFor="let vehicle of vehicles | vehicleCustomerFilter:search">
                                       <td>
                                           {{vehicle.vin}}
                                       </td>
                                       <td>
                                           {{vehicle.regNum}}
                                       </td>
-                                      <td (click)="linkToCustomer(vehicle.customerId)">
+                                      <td >
                                          {{vehicle.customerName}}
                                       </td>
                                       <td>

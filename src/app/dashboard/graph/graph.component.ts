@@ -21,7 +21,7 @@ export class GraphComponent implements OnInit, OnChanges {
     set customer(customers: Customer) {
         this._customer = customers;
         if (typeof this._customer !== 'undefined') {
-            for(const vehicle of this._customer.vehicles) {
+            for (const vehicle of this._customer.vehicles) {
                 this.nodes.push ({
                     id: String(vehicle.id),
                     label: vehicle.regNum,
